@@ -36,6 +36,9 @@
           <section>
               <section>
                   <h2 id="no-transform">What is Visual Regression Testing?</h2>
+                  <aside class="notes">
+                      There are many tools for testing behavior, but not many that test the way software looks.  That is where Visual Regession Testing comes in.
+                  </aside>
               </section>
           </section>
           <section>
@@ -56,7 +59,9 @@
                   </ul>
                   <aside class="notes">
                       VisualReview: Nice tool, but requires you to walk through and manually review and accept them.
-                      Spectre:
+                      Spectre: This seems like a really nice tool, but it requires you to host another server just for managing screenshots and differences.
+                      Wraith: Spectre, but for static sites
+                      Resemble.js: Also Meant for static sites
                   </aside>
               </section>
           </section>
@@ -64,8 +69,11 @@
               <section>
                   <h2 id="no-transform">Why do we need VRT?</h2>
               </section>
-              <section>
-                  <h2 id="no-transform">Because..</h2>
+              <section data-markdown>
+                  <script type="text/template">
+                   - Browsers are unrelible <!-- .element: class="fragment" data-fragment-index="1" -->
+                   - Too many environments.(BrowserStack Supports 987 enviornments. OS/browser combinations) <!-- .element: class="fragment" data-fragment-index="2" -->
+                  </script>
               </section>
           </section>
           <section>
