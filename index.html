@@ -117,6 +117,17 @@
                   </aside>
               </section>
               <section>
+                  <h3 id="no-transform">Example</h3>
+                  <pre><code data-trim data-noescape>
+describe 'a page' do
+    it 'has not changed visually' do
+        visit url
+        assert_no_ui_changes
+    end
+end
+                  </code></pre>
+              </section>
+              <section>
                   <div style="background-color: white;max-height: 375px;max-width: 578px;margin: auto">
                       <img src="media/browserstack-logo-600x315.png">
                   </div>
