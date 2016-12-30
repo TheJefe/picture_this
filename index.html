@@ -176,10 +176,10 @@ end
                   <table>
                       <tr>
                           <td id="zero-padding">
-                              <img class="fragment" id="bigger-image" data-fragment-index="1" src="media/base_image.png">
+                              <img id="bigger-image" src="media/base_image.png">
                           </td>
                           <td id="zero-padding">
-                              <img class="fragment" id="bigger-image" data-fragment-index="1" src="media/variable_image.png">
+                              <img id="bigger-image" src="media/variable_image.png">
                           </td>
                           <td id="zero-padding">
                               <img class="fragment" id="bigger-image" data-fragment-index="2" src="media/diff_image.png">
@@ -199,7 +199,8 @@ end
                   </table>
               </section>
               <section>
-                  Threshold
+                  <h2>Assert Diff < Threshold</h2>
+                  <h4 class="fragment">default threshold is 0.05%</h4>
               </section>
           </section>
           <section>
@@ -214,6 +215,9 @@ end
                   <aside class="notes">
                      but they can be parallelized and kept small and efficient, it's not so bad
                   </aside>
+              </section>
+              <section>
+                  <h2>Retries</h2>
               </section>
           </section>
           <section>
