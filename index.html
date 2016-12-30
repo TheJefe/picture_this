@@ -150,6 +150,29 @@
               </section>
               <section>
                   <h2 id="no-transform">Example</h2>
+                  <pre><code data-trim data-noescape>
+
+def self.color_difference_of_pixels(pixel1, pixel2)
+    score = Math.sqrt(
+        (r(pixel2) - r(pixel1)) ** 2 +
+        (g(pixel2) - g(pixel1)) ** 2 +
+        (b(pixel2) - b(pixel1)) ** 2
+    ) / Math.sqrt(MAX ** 2 * 3)
+
+    [grayscale(MAX - (score * MAX).round), score]
+end
+                  </code></pre>
+                  <div style="font-size: 0.5em">
+                  Thanks to <a href="http://jeffkreeftmeijer.com">Jeff Kreeftmeijer</a>,<br>
+                  and his blog post<br>
+                  <a href="http://jeffkreeftmeijer.com/2011/comparing-images-and-creating-image-diffs/">Comparing images and creating image diffs</a>
+                  </div>
+                  <aside class="notes">
+                      MAX is maximum value of each of the 4 commponents of an image(RGBA), which is 255
+                  </aside>
+              </section>
+              <section>
+                  <h2 id="no-transform">Example</h2>
                   <table>
                       <tr>
                           <td id="zero-padding">
