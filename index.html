@@ -51,6 +51,15 @@
               <h1>Picture This</h1>
               <h2>Automated Visual Regression Testing</h2>
           </section>
+          <section data-autoslide="1000">
+              <h2 id="no-transform">but first, What is Jeff Koenig?</h2>
+              <p class="fragment" style="position: absolute;left: 4px;top: -40px;">QA</p>
+              <p class="fragment" style="position: absolute;left: 75%;top: -60px;">Manager</p>
+              <p class="fragment" style="position: absolute;left: 75%;top: 180px;">Automator</p>
+              <p class="fragment" style="position: absolute;left: 50%;top: 160px;">Dev</p>
+              <p class="fragment" style="position: absolute;left: 35%;top: 200px;">Ops</p>
+              <p class="fragment" data-autoslide="0" style="position: absolute;left: 10%;top: 150px;">DevOps</p>
+          </section>
           <section>
               <section>
                   <h2 id="no-transform">What is Visual Regression Testing?</h2>
@@ -95,15 +104,23 @@
           <section>
               <section>
                   <h2 id="no-transform">Why do we need VRT?</h2>
-                  <ul style="font-size: 1.4em">
-                      <li class="fragment">Browsers are unreliable and inconsistent</li>
-                      <li class="fragment">Too many environments to test manually</li>
-                      <ul>
-                          <li class="fragment">
-                              BrowserStack Supports 987 enviornments
-                          </li>
-                      </ul>
-                  </ul>
+              </section>
+              <section>
+                  <h3 id="no-transform">Why do we need VRT?</h3>
+                  <p style="font-size: 1.4em">Browsers are unreliable and inconsistent</p>
+              </section>
+              <section>
+                  <h3 id="no-transform">Why do we need VRT?</h3>
+                  <p style="font-size: 1.4em">Too many environments to test manually</p>
+                  <p class="fragment">BrowserStack Supports 987 enviornments</p>
+              </section>
+              <section>
+                  <h3 id="no-transform">Why do we need VRT?</h3>
+                  <p class="fragment">Because it is annoying to manually test the same thing acrossing a bunch of different browsers</p>
+                  <img src="media/manual_testing_is_boring.gif">
+                  <aside class="notes">
+                      Tester fatigue can become a real problem
+                  </aside>
               </section>
               <section>
                   <h2 id="no-transform">Example</h2>
@@ -124,19 +141,43 @@
                   <h2 id="no-transform">just meant for other things</h2>
               </section>
               <section>
-                  <h1 id="no-transform">Some Other Tools</h1>
-                  <ul>
-                      <li><a target="_blank" href="https://github.com/xebia/VisualReview">VisualReview</a></li>
-                      <li><a target="_blank" href="https://github.com/wearefriday/spectre">Spectre</a></li>
-                      <li><a target="_blank" href="https://github.com/BBC-News/wraith">Wraith</a></li>
-                      <li><a target="_blank" href="https://github.com/Huddle/Resemble.js">Resemble.js</a></li>
-                  </ul>
+                  <h2 id="no-transform">Tools that came before</h2>
+              </section>
+              <section>
+                  <h2 id="no-transform"><a target="_blank" href="https://github.com/xebia/VisualReview">VisualReview</a></h2>
+                  <p class="fragment">Server based tool, and requires manual review for approving/rejecting diffs</p>
+              </section>
+              <section>
+                  <h2 id="no-transform"><a target="_blank" href="https://github.com/wearefriday/spectre">Spectre</a></h2>
+                  <p class="fragment">Server based as well, this one allows for a bit more integration and will pass/fail each image, for manual review</p>
+              </section>
+              <section>
+                  <h2 id="no-transform"><a target="_blank" href="https://github.com/BBC-News/wraith">Wraith</a></h2>
+                  <p class="fragment">Using a headless browser, takes and compares screenshots across domains, or between a domain and a history of screenshots.</p>
+              </section>
+              <section>
+                  <h2 id="no-transform"><a target="_blank" href="https://github.com/andrewccadman/wraith-selenium">Selenium Wraith</a></h2>
+                  <p class="fragment">Wraith, but with selenium support, but compares all browsers to the same baseline image</p>
                   <aside class="notes">
-                      VisualReview: Nice tool, but requires you to walk through and manually review and accept them.
-                      Spectre: This seems like a really nice tool, but it requires you to host another server just for managing screenshots and differences.
-                      Wraith: Spectre, but for static sites
-                      Resemble.js: Also Meant for static sites
+                      This means there is a lot of weird croping and resizing to make the images the same size for comparing
                   </aside>
+              </section>
+              <section>
+                  <h2 id="no-transform"><a target="_blank" href="https://github.com/Huddle/Resemble.js">Resemble.js</a></h2>
+                  <p class="fragment">Generates really nice image differences</p>
+              </section>
+              <section>
+                  <h2 id="no-transform"><a target="_blank" href="https://github.com/Huddle/PhantomCSS">PhantomCSS</a></h2>
+                  <p class="fragment">uses headless browsers, focuses on CSS Regression Testing</p>
+              </section>
+              <section>
+                  <h2 id="no-transform">The Problems with these tools</h2>
+                  <ul>
+                      <li class="fragment">Requires more infrastructure</li>
+                      <li class="fragment">Requires a completly seperate test framework</li>
+                      <li class="fragment">Really only work well for static sites</li>
+                      <li class="fragment">No clear test result(Pass/Fail)</li>
+                  </ul>
               </section>
           </section>
           <section>
@@ -146,6 +187,7 @@
               <section>
                   <h1 id="no-transform"><a target="_blank" href="https://github.com/compatriot/compatriot">Compatriot</a></h1>
                   <aside class="notes">
+                      Written in ruby<br>
                       Tool designed to work with Capybara by adding a `assert_no_ui_changes` method
                   </aside>
               </section>
@@ -161,7 +203,23 @@ end
                   </code></pre>
               </section>
               <section>
+                  <h3 id="no-transform">For multiple assertions per test</h3>
+                  <pre><code data-trim data-noescape>
+describe 'a page' do
+    it 'has not changed visually' do
+        visit url
+        assert_no_ui_changes 'part 1'
+        click_on link
+        assert_no_ui_changes 'part 2'
+    end
+end
+                  </code></pre>
+              </section>
+              <section>
                   <h3>Looks like your Unit and Integration tests, but they should be kept and run separately</h3>
+                  <aside class="notes">
+                      Because we are gonna rerun this set of tests in all our supporeted enviornments
+                  </aside>
               </section>
               <section>
                   <div style="background-color: white;max-height: 375px;max-width: 578px;margin: auto">
@@ -186,6 +244,9 @@ end
               </section>
               <section>
                   <h2 id="no-transform">Lets Talk Image Diffing</h2>
+                  <aside class="notes">
+                     Process of comparing two images
+                  </aside>
               </section>
               <section>
                   <h2 id="no-transform">How do we do it?</h2>
@@ -267,11 +328,12 @@ end
               </section>
               <section>
                   <h2>Retries</h2>
+                  <p>Reduces noise from page rendering speeds</p>
               </section>
               <section>
                   <h2>Variable Data Generation</h2>
-                  <h4 class="fragment">When shown on the page</h4>
-                  <h4 class="fragment">ie. Names, Usernames</h4>
+                  <h4 >When shown on the page</h4>
+                  <h4 >ie. Names, Usernames</h4>
                   <aside class="notes">
                       If these variables are shown on the page, they can cause false differences
                   </aside>
@@ -282,10 +344,10 @@ end
                   <h2 id="no-transform">What still needs some polish?</h2>
               </section>
               <section>
-                  <h2 id="no-transform">Browser Drivers inconsistent</h2>
+                  <h2 id="no-transform">Browser Driver are still very inconsistent</h2>
                   <ul>
-                      <li class="fragment">Full Page Screenshots</li>
-                      <li class="fragment">Inconsistency with driver support</li>
+                      <li>Full Page Screenshots</li>
+                      <li>Inconsistency with driver support</li>
                   <aside class="notes">
                     Some browsers support hovering, some verying degree of access executing javascript on the page
                   </aside>
