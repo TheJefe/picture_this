@@ -133,6 +133,9 @@
           </section>
           <section>
               <section>
+                  <h2 id="no-transform">Are any of you doing Visual Regression Testing already?</h2>
+              </section>
+              <section>
                   <h2 id="no-transform">Why aren't we all doing it?</h2>
               </section>
               <section>
@@ -143,6 +146,10 @@
                   <h2 id="no-transform">Well..</h2>
                   <h2 id="no-transform">not bad,</h2>
                   <h2 id="no-transform">just meant for other things</h2>
+
+                  <aside class="notes">
+                      Wrong tools for the job
+                  </aside>
               </section>
               <section>
                   <h2 id="no-transform">Tools that came before</h2>
@@ -150,18 +157,22 @@
               <section>
                   <h2 id="no-transform"><a target="_blank" href="https://github.com/xebia/VisualReview">VisualReview</a></h2>
                   <p class="fragment">Server based tool, and requires manual review for approving/rejecting diffs</p>
+                  <img class="fragment" style="position:absolute; left: 357px; top:100px;" src="media/toss_it_out.gif">
               </section>
               <section>
                   <h2 id="no-transform"><a target="_blank" href="https://github.com/wearefriday/spectre">Spectre</a></h2>
                   <p class="fragment">Server based as well, this one allows for a bit more integration and will pass/fail each image, for manual review</p>
+                  <img class="fragment" style="position: absolute; left: 327px; top:100px;" src="media/go_away.gif">
               </section>
               <section>
                   <h2 id="no-transform"><a target="_blank" href="https://github.com/BBC-News/wraith">Wraith</a></h2>
                   <p class="fragment">Using a headless browser, takes and compares screenshots across domains, or between a domain and a history of screenshots.</p>
+                  <img class="fragment" style="position: absolute; left: 277px; top:100px;" src="media/no.gif">
               </section>
               <section>
                   <h2 id="no-transform"><a target="_blank" href="https://github.com/andrewccadman/wraith-selenium">Selenium Wraith</a></h2>
                   <p class="fragment">Wraith, but with selenium support, but compares all browsers to the same baseline image</p>
+                  <img class="fragment" style="position: absolute; left: 333px; top:53px;max-height: none; height: auto; width: 300px;" src="media/unacceptable.gif">
                   <aside class="notes">
                       This means there is a lot of weird croping and resizing to make the images the same size for comparing
                   </aside>
@@ -173,7 +184,8 @@
               </section>
               <section>
                   <h2 id="no-transform"><a target="_blank" href="https://github.com/Huddle/PhantomCSS">PhantomCSS</a></h2>
-                  <p class="fragment">uses headless browsers, focuses on CSS Regression Testing</p>
+                  <p class="fragment" >uses headless browsers, focuses on CSS Regression Testing</p>
+                  <img class="fragment" style="position: absolute; left: 236px; height: auto; max-height: none; top: 17px; width: 500px;" src="media/out_the_window.gif">
               </section>
               <section>
                   <h2 id="no-transform">The Problems with these tools</h2>
@@ -181,7 +193,9 @@
                       <li class="fragment">Requires more infrastructure</li>
                       <li class="fragment">Requires a completly seperate test framework</li>
                       <li class="fragment">Really only work well for static sites</li>
+                      <li class="fragment">Must use real browsers to be affective</li>
                       <li class="fragment">No clear test result(Pass/Fail)</li>
+                      <li class="fragment">This makes it difficult for using with CI</li>
                   </ul>
               </section>
           </section>
